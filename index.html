@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" /> -->
+    <link href="https://bootswatch.com/5/cosmo/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
+      /* .feature-icon {
+        font-size: 3rem;
+        color: #007bff;
+        margin-bottom: 1rem;
+      } */
+
+      .feature-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+      }
+
+      h4 {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+      .gradient-bg {
+        background-image: linear-gradient(120deg, #007bff, #673ab7);
+      }
+
+      .custom-btn {
+        background-color: #28a745;
+        border-color: #28a745;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 1.25rem;
+        border-radius: 25px;
+        padding: 10px 25px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+      }
+
+      .custom-btn:hover {
+        background-color: #218838;
+        border-color: #218838;
+        color: #ffffff;
+        box-shadow: 0 7px 20px rgba(0, 0, 0, 0.25);
+      }
+
+      .highlight-text {
+        color: #ffffff;
+        font-weight: normal;
+      }
+
+      .tagline {
+        color: #ffffff;
+      }
+
+      .conversation-container {
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: justify;
+      }
+
+      .owner-msg,
+      .assistant-msg {
+        display: inline-block;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        text-align: left;
+      }
+
+      .owner-msg {
+        background-color: #007bff;
+        color: #ffffff;
+        float: left;
+        clear: both;
+        margin-right: 20px;
+      }
+
+      .assistant-msg {
+        background-color: #f8f9fa;
+        color: #212529;
+        float: right;
+        clear: both;
+      }
+
+      /* Feature 1 */
+      .feature-1 .conversation-container {
+        height: 100%;
+      }
+      .feature-1 .feature-icon {
+        color: #0073e6;
+      }
+      .feature-1 h4 {
+        font-weight: bold;
+        font-size: 1.75rem;
+        color: #007bff;
+      }
+      .feature-1 p {
+        font-size: 1.1rem;
+      }
+
+      /* Feature 2 */
+      .feature-2 .conversation-container {
+        height: 100%;
+      }
+      .feature-2 .feature-icon {
+        color: #228b22;
+      }
+      .feature-2 h4 {
+        font-weight: bold;
+        font-size: 1.75rem;
+        color: #28a745;
+      }
+      .feature-2 p {
+        font-size: 1.1rem;
+      }
+
+      /* Feature 3 */
+      .feature-3 .conversation-container {
+        height: 100%;
+      }
+      .feature-3 .feature-icon {
+        color: #daa520;
+      }
+      .feature-3 h4 {
+        font-weight: bold;
+        font-size: 1.75rem;
+        color: #ffc107;
+      }
+      .feature-3 p {
+        font-size: 1.1rem;
+      }
+
+      /* Feature 4 */
+      .feature-4 .conversation-container {
+        height: 100%;
+      }
+      .feature-4 .feature-icon {
+        color: #b22222;
+      }
+      .feature-4 h4 {
+        font-weight: bold;
+        font-size: 1.75rem;
+        color: #dc3545;
+      }
+      .feature-4 p {
+        font-size: 1.1rem;
+      }
+
+      /* Feature 5 */
+      .feature-5 .conversation-container {
+        height: 100%;
+      }
+      .feature-5 .feature-icon {
+        color: #008080;
+      }
+      .feature-5 h4 {
+        font-weight: bold;
+        font-size: 1.75rem;
+        color: #17a2b8;
+      }
+      .feature-5 p {
+        font-size: 1.1rem;
+      }
+
+      /* Feature 6 */
+      .feature-6 .conversation-container {
+        height: 100%;
+      }
+      .feature-6 .feature-icon {
+        color: #6c757d;
+      }
+      .feature-6 h4 {
+        font-weight: bold;
+        font-size: 1.75rem;
+        color: #6c757d;
+      }
+      .feature-6 p {
+        font-size: 1.1rem;
+      }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" />
+    <title>SocialGPT - AI Driven Social Media Copilot</title>
+  </head>
+  <body>
+    <!-- Header with product name and tagline -->
+    <!-- Hero -->
+    <header
+      class="bg-primary text-white d-flex align-items-center justify-content-center gradient-bg"
+      style="height: 100vh"
+    >
+      <div class="container">
+        <h1 class="display-4 text-center">
+          <span class="highlight-text">SocialGPT</span> - Revolutionize your social media
+        </h1>
+
+        <p class="lead text-center tagline">
+          Your AI-driven social media copilot for seamless communication and engagement
+        </p>
+        <p class="text-center">
+          <a class="btn custom-btn btn-lg" href="#signup" role="button">Join the Beta</a>
+        </p>
+      </div>
+    </header>
+    <!-- Product features -->
+    <!-- Features -->
+    <section class="container my-5">
+      <h2 class="text-center mb-4">Key Features</h2>
+      <div class="row">
+        <!-- Feature 1 -->
+        <div class="col-12 mb-4 feature-1">
+          <div class="row">
+            <div class="col-md-6">
+              <h4><i class="feature-icon fas fa-comments"></i> AI-powered engagement</h4>
+              <p>
+                SocialGPT enables AI-driven interaction with your audience, automated messaging, and personalized
+                assistance for effective communication.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <div class="conversation-container">
+                <div class="owner-msg">
+                  <p>Assistant, reply to the recent comments.</p>
+                </div>
+                <div class="assistant-msg left-bubble">
+                  <p>Done! People have lots of good things to say.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <!-- Feature 2 -->
+        <div class="col-12 mb-4 feature-2">
+          <div class="row">
+            <div class="col-md-6 order-md-2">
+              <h4><i class="feature-icon fas fa-cogs"></i>Smart tools integration</h4>
+              <p>
+                Your AI assistant has access to various tools, such as Google Search, to provide comprehensive support
+                just like a human would.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <div class="conversation-container">
+                <div class="owner-msg">
+                  <p>Assistant, can you research and suggest what should I post next?</p>
+                </div>
+                <div class="assistant-msg left-bubble">
+                  <p>
+                    Sure, based on the latest engagement on your Instagram, you should try posting a behind-the-scenes
+                    of your dance or a teaser for your next dance.
+                  </p>
+                </div>
+                <div class="owner-msg">
+                  <p>Cool, I do have a behind the scenes video of the last dance video, suggest me a caption:</p>
+                </div>
+                <div class="assistant-msg left-bubble">
+                  <p>
+                    Behind the scenes of our latest dance 🕺🏻💃🏻 Can't wait to show you the final product! #dance
+                    #behindthescenes
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="col-12 mb-4 feature-3">
+          <div class="row">
+            <div class="col-md-6">
+              <h4><i class="feature-icon fas fa-sliders-h" style="color: #ffc107"></i>Customizable preferences</h4>
+              <p>
+                Teach your AI assistant your preferences and communication style, ensuring tailored and personalized
+                support.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <div class="conversation-container">
+                <div class="owner-msg">
+                  <p>Assistant, can you research and suggest what should I post next?</p>
+                </div>
+                <div class="assistant-msg left-bubble">
+                  <p>
+                    Sure, based on the latest engagement on your Instagram, you should try posting a behind-the-scenes
+                    of your dance or a teaser for your next dance.
+                  </p>
+                </div>
+                <div class="owner-msg">
+                  <p>Cool, I do have a behind the scenes video of the last dance video, suggest me a caption:</p>
+                </div>
+                <div class="assistant-msg left-bubble">
+                  <p>
+                    Behind the scenes of our latest dance 🕺🏻💃🏻 Can't wait to show you the final product! #dance
+                    #behindthescenes
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Feature 4 -->
+        <div class="col-12 mb-4 feature-4">
+          <div class="row">
+            <div class="col-md-6 order-md-2">
+              <h4><i class="feature-icon fas fa-mobile-alt" style="color: #dc3545"></i>Platform support</h4>
+              <p>
+                SocialGPT currently supports Instagram, with Twitter integration coming soon to further expand your
+                social media management capabilities.
+              </p>
+            </div>
+            <div class="col-md-6 order-md-1">
+              <div class="conversation-container">
+                <!-- Add the conversation content for Feature 4 here -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 mb-4 feature-5">
+          <div class="row">
+            <div class="col-md-6">
+              <h4><i class="feature-icon fas fa-users" style="color: #17a2b8"></i>Scalable engagement</h4>
+              <p>
+                Effortlessly engage with your audience at scale, ensuring you never miss an opportunity to connect and
+                follow up.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <div class="conversation-container">
+                <!-- Add the conversation content for Feature 5 here -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Feature 6 -->
+        <div class="col-12 mb-4 feature-6">
+          <div class="row">
+            <div class="col-md-6 order-md-2">
+              <h4><i class="feature-icon fas fa-clone" style="color: #6c757d"></i>Multiple assistants</h4>
+              <p>
+                Create multiple AI assistants as needed, providing flexibility and comprehensive support for all your
+                social media tasks.
+              </p>
+            </div>
+            <div class="col-md-6 order-md-1">
+              <div class="conversation-container">
+                <!-- Add the conversation content for Feature 6 here -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call-to-action for private beta sign-up -->
+    <section class="bg-light py-5">
+      <div class="container text-center" id="signup">
+        <h2>Join our limited private beta!</h2>
+        <p>Submit your email and use case for a chance to participate.</p>
+        <form
+          action="https://docs.google.com/forms/d/e/1FAIpQLSfpxy2it4nCISNjTvdw8dN9oFCaGKunoUe21NVMMJWpoIiePQ/formResponse"
+          method="post"
+          class="row g-3 justify-content-center"
+        >
+          <div class="col-md-4">
+            <label for="email-input" class="form-label">Email</label>
+            <input
+              type="email"
+              name="entry.381211308"
+              class="form-control"
+              id="email-input"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="use-case-input" class="form-label">Use case</label>
+            <textarea
+              class="form-control"
+              name="entry.1860222748"
+              id="use-case-input"
+              rows="3"
+              placeholder="Describe your use case"
+              required
+            ></textarea>
+          </div>
+          <div class="col-12 mt-3">
+            <button type="submit" class="btn btn-primary custom-btn">Sign up</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer class="bg-light py-3">
+      <div class="container text-center">
+        <p class="mb-0">&copy; 2023 SocialGPT. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+      document.querySelector('a[href="#signup"]').addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelector("#signup").scrollIntoView({ behavior: "smooth" });
+      });
+    </script>
+  </body>
+</html>
