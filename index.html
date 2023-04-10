@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Bootstrap CSS -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" /> -->
     <link href="https://bootswatch.com/5/cosmo/bootstrap.min.css" rel="stylesheet" />
-    <style type="text/css">
-      /* .feature-icon {
-        font-size: 3rem;
-        color: #007bff;
-        margin-bottom: 1rem;
-      } */
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" /> -->
 
+    <style type="text/css">
+      /* Add your custom styles here */
       .feature-icon {
         font-size: 2rem;
         margin-bottom: 1rem;
@@ -48,318 +43,475 @@
         box-shadow: 0 7px 20px rgba(0, 0, 0, 0.25);
       }
 
-      .highlight-text {
-        color: #ffffff;
-        font-weight: normal;
-      }
-
-      .tagline {
-        color: #ffffff;
-      }
-
-      .conversation-container {
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-        text-align: justify;
-      }
-
-      .owner-msg,
-      .assistant-msg {
-        display: inline-block;
-        padding: 10px;
+      .feature-container {
+        background: white;
         border-radius: 5px;
-        margin-bottom: 10px;
-        text-align: left;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
 
-      .owner-msg {
+      .feature-icon {
+        font-size: 2.5rem;
+        margin-right: 1.5rem;
+      }
+      .card {
+        border-radius: 5px;
+        overflow: hidden;
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Chat container */
+      .chat-container {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .chat-message {
+        padding: 8px 12px;
+        margin-bottom: 10px;
+        display: inline-block;
+        max-width: 70%;
+        border-radius: 12px;
+        word-wrap: break-word;
+        position: relative;
+      }
+
+      .chat-user {
+        background-color: #e9ecef;
+        text-align: right;
+      }
+
+      .chat-assistant {
         background-color: #007bff;
         color: #ffffff;
-        float: left;
-        clear: both;
-        margin-right: 20px;
       }
 
-      .assistant-msg {
-        background-color: #f8f9fa;
-        color: #212529;
-        float: right;
-        clear: both;
+      .chat-message p {
+        margin: 0;
       }
 
-      /* Feature 1 */
-      .feature-1 .conversation-container {
-        height: 100%;
+      .chat-user::before,
+      .chat-assistant::after {
+        content: "";
+        position: absolute;
+        border-style: solid;
       }
-      .feature-1 .feature-icon {
-        color: #0073e6;
+
+      .chat-user::before {
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent #e9ecef;
+        right: -10px;
+        top: 50%;
+        margin-top: -10px;
       }
-      .feature-1 h4 {
-        font-weight: bold;
-        font-size: 1.75rem;
+
+      .chat-assistant::after {
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #007bff transparent transparent;
+        left: -10px;
+        top: 50%;
+        margin-top: -10px;
+      }
+
+      /* Chat Icons */
+      .chat-icon {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        vertical-align: middle;
+        position: absolute;
+        color: #7b7b7b;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .chat-assistant .chat-icon {
+        left: -30px;
+        color: coral;
+      }
+
+      .chat-user .chat-icon {
+        right: -30px;
         color: #007bff;
       }
-      .feature-1 p {
-        font-size: 1.1rem;
+
+      .chat-behind-the-scenes {
+        background-color: #ff0000; /* Replace #ff0000 with the desired color code */
+        color: #ffffff; /* Optional: change the text color to make it more readable */
       }
 
-      /* Feature 2 */
-      .feature-2 .conversation-container {
-        height: 100%;
-      }
-      .feature-2 .feature-icon {
-        color: #228b22;
-      }
-      .feature-2 h4 {
-        font-weight: bold;
-        font-size: 1.75rem;
-        color: #28a745;
-      }
-      .feature-2 p {
-        font-size: 1.1rem;
-      }
-
-      /* Feature 3 */
-      .feature-3 .conversation-container {
-        height: 100%;
-      }
-      .feature-3 .feature-icon {
-        color: #daa520;
-      }
-      .feature-3 h4 {
-        font-weight: bold;
-        font-size: 1.75rem;
-        color: #ffc107;
-      }
-      .feature-3 p {
-        font-size: 1.1rem;
-      }
-
-      /* Feature 4 */
-      .feature-4 .conversation-container {
-        height: 100%;
-      }
-      .feature-4 .feature-icon {
-        color: #b22222;
-      }
-      .feature-4 h4 {
-        font-weight: bold;
-        font-size: 1.75rem;
-        color: #dc3545;
-      }
-      .feature-4 p {
-        font-size: 1.1rem;
-      }
-
-      /* Feature 5 */
-      .feature-5 .conversation-container {
-        height: 100%;
-      }
-      .feature-5 .feature-icon {
-        color: #008080;
-      }
-      .feature-5 h4 {
-        font-weight: bold;
-        font-size: 1.75rem;
-        color: #17a2b8;
-      }
-      .feature-5 p {
-        font-size: 1.1rem;
-      }
-
-      /* Feature 6 */
-      .feature-6 .conversation-container {
-        height: 100%;
-      }
-      .feature-6 .feature-icon {
-        color: #6c757d;
-      }
-      .feature-6 h4 {
-        font-weight: bold;
-        font-size: 1.75rem;
-        color: #6c757d;
-      }
-      .feature-6 p {
-        font-size: 1.1rem;
+      .chat-message {
+        position: relative;
+        /* Other existing styles */
       }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" />
-    <title>SocialGPT - AI Driven Social Media Copilot</title>
+    <title>SocialGPT - Revolutionize your social media with AI</title>
   </head>
   <body>
+    <!-- 1. Single page -->
+    <!-- 2. Top Nav -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="#">SocialGPT</a>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#features">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#examples">Examples</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#signup">Beta Registration</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- 3. Hero -->
     <!-- Header with product name and tagline -->
-    <!-- Hero -->
     <header
       class="bg-primary text-white d-flex align-items-center justify-content-center gradient-bg"
       style="height: 100vh"
     >
-      <div class="container">
-        <h1 class="display-4 text-center">
-          <span class="highlight-text">SocialGPT</span> - Revolutionize your social media
-        </h1>
-
-        <p class="lead text-center tagline">
-          Your AI-driven social media copilot for seamless communication and engagement
-        </p>
+      <div class="container text-center">
+        <h1 class="display-4">SocialGPT - Revolutionize your social media</h1>
+        <p class="lead">Your AI-driven social media copilot for seamless communication and engagement</p>
         <p class="text-center">
           <a class="btn custom-btn btn-lg" href="#signup" role="button">Join the Beta</a>
         </p>
       </div>
     </header>
-    <!-- Product features -->
+    <!-- 4. A section after hero that lists core features -->
     <!-- Features -->
-    <section class="container my-5">
+    <section id="features" class="container feature-section-container my-5">
       <h2 class="text-center mb-4">Key Features</h2>
       <div class="row">
-        <!-- Feature 1 -->
-        <div class="col-12 mb-4 feature-1">
-          <div class="row">
-            <div class="col-md-6">
-              <h4><i class="feature-icon fas fa-comments"></i> AI-powered engagement</h4>
+        <!-- Feature 1: AI-powered engagement -->
+        <div class="col-md-6 mb-4 feature-1">
+          <div class="feature-container d-flex align-items-center">
+            <i class="feature-icon fas fa-comments text-primary"></i>
+            <div class="feature-content">
+              <h4 class="text-primary">AI-powered engagement</h4>
               <p>
                 SocialGPT enables AI-driven interaction with your audience, automated messaging, and personalized
                 assistance for effective communication.
               </p>
             </div>
-            <div class="col-md-6">
-              <div class="conversation-container">
-                <div class="owner-msg">
-                  <p>Assistant, reply to the recent comments.</p>
-                </div>
-                <div class="assistant-msg left-bubble">
-                  <p>Done! People have lots of good things to say.</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
-        <!-- Feature 2 -->
-        <!-- Feature 2 -->
-        <div class="col-12 mb-4 feature-2">
-          <div class="row">
-            <div class="col-md-6 order-md-2">
-              <h4><i class="feature-icon fas fa-cogs"></i>Smart tools integration</h4>
+        <!-- Feature 2: Smart tools integration -->
+        <div class="col-md-6 mb-4 feature-2">
+          <div class="feature-container d-flex align-items-center">
+            <i class="feature-icon fas fa-cogs text-success"></i>
+            <div class="feature-content">
+              <h4 class="text-success">Smart tools integration</h4>
               <p>
                 Your AI assistant has access to various tools, such as Google Search, to provide comprehensive support
                 just like a human would.
               </p>
             </div>
-            <div class="col-md-6">
-              <div class="conversation-container">
-                <div class="owner-msg">
-                  <p>Assistant, can you research and suggest what should I post next?</p>
-                </div>
-                <div class="assistant-msg left-bubble">
-                  <p>
-                    Sure, based on the latest engagement on your Instagram, you should try posting a behind-the-scenes
-                    of your dance or a teaser for your next dance.
-                  </p>
-                </div>
-                <div class="owner-msg">
-                  <p>Cool, I do have a behind the scenes video of the last dance video, suggest me a caption:</p>
-                </div>
-                <div class="assistant-msg left-bubble">
-                  <p>
-                    Behind the scenes of our latest dance 🕺🏻💃🏻 Can't wait to show you the final product! #dance
-                    #behindthescenes
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
-        <!-- Feature 3 -->
-        <div class="col-12 mb-4 feature-3">
-          <div class="row">
-            <div class="col-md-6">
-              <h4><i class="feature-icon fas fa-sliders-h" style="color: #ffc107"></i>Customizable preferences</h4>
+        <!-- Feature 3: Customizable preferences -->
+        <div class="col-md-6 mb-4 feature-3">
+          <div class="feature-container d-flex align-items-center">
+            <i class="feature-icon fas fa-sliders-h text-warning"></i>
+            <div class="feature-content">
+              <h4 class="text-warning">Customizable preferences</h4>
               <p>
                 Teach your AI assistant your preferences and communication style, ensuring tailored and personalized
                 support.
               </p>
             </div>
-            <div class="col-md-6">
-              <div class="conversation-container">
-                <div class="owner-msg">
-                  <p>Assistant, can you research and suggest what should I post next?</p>
-                </div>
-                <div class="assistant-msg left-bubble">
-                  <p>
-                    Sure, based on the latest engagement on your Instagram, you should try posting a behind-the-scenes
-                    of your dance or a teaser for your next dance.
-                  </p>
-                </div>
-                <div class="owner-msg">
-                  <p>Cool, I do have a behind the scenes video of the last dance video, suggest me a caption:</p>
-                </div>
-                <div class="assistant-msg left-bubble">
-                  <p>
-                    Behind the scenes of our latest dance 🕺🏻💃🏻 Can't wait to show you the final product! #dance
-                    #behindthescenes
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
-        <!-- Feature 4 -->
-        <div class="col-12 mb-4 feature-4">
-          <div class="row">
-            <div class="col-md-6 order-md-2">
-              <h4><i class="feature-icon fas fa-mobile-alt" style="color: #dc3545"></i>Platform support</h4>
+
+        <!-- Feature 4: Platform support -->
+        <div class="col-md-6 mb-4 feature-4">
+          <div class="feature-container d-flex align-items-center">
+            <i class="feature-icon fas fa-mobile-alt text-info"></i>
+            <div class="feature-content">
+              <h4 class="text-info">Platform support</h4>
               <p>
                 SocialGPT currently supports Instagram, with Twitter integration coming soon to further expand your
                 social media management capabilities.
               </p>
             </div>
-            <div class="col-md-6 order-md-1">
-              <div class="conversation-container">
-                <!-- Add the conversation content for Feature 4 here -->
-              </div>
-            </div>
           </div>
         </div>
-        <div class="col-12 mb-4 feature-5">
-          <div class="row">
-            <div class="col-md-6">
-              <h4><i class="feature-icon fas fa-users" style="color: #17a2b8"></i>Scalable engagement</h4>
+
+        <!-- Feature 5: Scalable engagement -->
+        <div class="col-md-6 mb-4 feature-5">
+          <div class="feature-container d-flex align-items-center">
+            <i class="feature-icon fas fa-users text-danger"></i>
+            <div class="feature-content">
+              <h4 class="text-danger">Scalable engagement</h4>
               <p>
                 Effortlessly engage with your audience at scale, ensuring you never miss an opportunity to connect and
                 follow up.
               </p>
             </div>
-            <div class="col-md-6">
-              <div class="conversation-container">
-                <!-- Add the conversation content for Feature 5 here -->
+          </div>
+        </div>
+
+        <!-- Feature 6: Multiple assistants -->
+        <div class="col-md-6 mb-4 feature-6">
+          <div class="feature-container d-flex align-items-center">
+            <i class="feature-icon fas fa-clone text-secondary"></i>
+            <div class="feature-content">
+              <h4 class="text-secondary">Multiple assistants</h4>
+              <p>
+                Deploy multiple AI assistants to handle various tasks, ensuring efficient management of your social
+                media presence and rapid response times.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Add the use cases content here -->
+    <!-- Example:
+      U: Can you DM my new followers with a welcome message?
+      A: Sure, I'd be happy to do that!
+      A: <sends a welcome message to all new followers>
+      A: Done! I've sent a welcome message to all your new followers.
+
+      Example:
+      U: Can you create a poll in my stories asking if my followers prefer workout videos or healthy recipes?
+      A: Sure thing!
+      A: <creates and posts a poll in Instagram stories>
+      A: Poll posted! Let's see what your followers prefer.
+
+      Example:
+      U: Can you share a motivational quote on my feed with an appropriate image?
+      A: Of course! Let me find a suitable quote and image.
+      A: <finds a quote and image, then posts on the Instagram feed>
+      A: Posted! The quote says "Believe you can and you're halfway there." - Theodore Roosevelt.
+
+      Example:
+      U: Can you find and join Instagram engagement groups in my niche?
+      A: Absolutely! I'll look for engagement groups related to your niche.
+      A: <searches and joins relevant Instagram engagement groups>
+      A: I've joined 3 engagement groups in your niche. You can now interact with like-minded individuals and grow your account.
+
+      Example:
+      U: Can you help me organize a surprise birthday party for my friend Sarah? Please coordinate with @john, @amy, and @michael to finalize the plans.
+      A: Sure, I'd be happy to help you with that! Let me talk to them and get back to you.
+      A: <initiates a group chat with @john, @amy, and @michael to discuss and plan the surprise party>
+
+      <Assistant in the group chat>
+      A: Hey everyone! @user wants to organize a surprise birthday party for Sarah. Let's brainstorm ideas for the venue, theme, and any other details. Please share your thoughts and suggestions!
+
+      <group chat discussion>
+      A: <collects ideas, preferences, and availability from @john, @amy, and @michael>
+
+      A: <summarizes the group's input and proposes a final plan>
+      A: Based on our discussion, I suggest we host the surprise party at the local park on Saturday at 6 PM, with a Hawaiian theme. We'll need decorations, snacks, and a birthday cake. How does that sound?
+
+      <group chat agreement>
+      A: <confirms and finalizes the plan with @john, @amy, and @michael>
+
+      A: Great! I'll create a checklist of things to do and assign tasks to each of you. Let's make this surprise party a memorable one for Sarah!
+
+      <back to the user>
+      A: I've discussed the surprise birthday party with @john, @amy, and @michael. We've decided on a Hawaiian-themed party at the local park on Saturday at 6 PM. I've created a checklist and assigned tasks to each of them. The plan is all set! -->
+
+    <section id="examples" class="container my-5">
+      <h2 class="text-center mb-4">Mind-Blowing Examples of SocialGPT in Action!</h2>
+      <div class="accordion" id="examplesAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+            >
+              Welcome your new followers
+            </button>
+          </h2>
+          <div
+            id="collapseOne"
+            class="accordion-collapse collapse show"
+            aria-labelledby="headingOne"
+            data-bs-parent="#examplesAccordion"
+          >
+            <div class="accordion-body">
+              <div class="chat-container">
+                <div class="chat-message chat-user">
+                  <i class="fas fa-user chat-icon" aria-hidden="true"></i>
+                  <p>Can you DM my new followers with a welcome message?</p>
+                </div>
+                <div class="chat-message chat-assistant">
+                  <i class="fas fa-robot chat-icon" aria-hidden="true"></i>
+                  <p>Sure, I'd be happy to do that!</p>
+                </div>
+                <div class="chat-message chat-assistant">
+                  <i class="fas fa-robot chat-icon" aria-hidden="true"></i>
+                  <p>Done! I've sent a welcome message to all your new followers.</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- Feature 6 -->
-        <div class="col-12 mb-4 feature-6">
-          <div class="row">
-            <div class="col-md-6 order-md-2">
-              <h4><i class="feature-icon fas fa-clone" style="color: #6c757d"></i>Multiple assistants</h4>
-              <p>
-                Create multiple AI assistants as needed, providing flexibility and comprehensive support for all your
-                social media tasks.
-              </p>
-            </div>
-            <div class="col-md-6 order-md-1">
-              <div class="conversation-container">
-                <!-- Add the conversation content for Feature 6 here -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo"
+              aria-expanded="false"
+              aria-controls="collapseTwo"
+            >
+              Find what your followers prefer
+            </button>
+          </h2>
+          <div
+            id="collapseTwo"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingTwo"
+            data-bs-parent="#examplesAccordion"
+          >
+            <div class="accordion-body">
+              <div class="chat-container">
+                <div class="chat-message chat-user">
+                  <i class="fas fa-user chat-icon" aria-hidden="true"></i>
+                  <p>
+                    Can you create a poll in my stories asking if my followers prefer workout videos or healthy recipes?
+                  </p>
+                </div>
+                <div class="chat-message chat-assistant">
+                  <i class="fas fa-robot chat-icon" aria-hidden="true"></i>
+                  <p>Sure thing, how would you like me to interact with your followers - messages, or poll?</p>
+                </div>
+                <div class="chat-message chat-user">
+                  <i class="fas fa-user chat-icon" aria-hidden="true"></i>
+                  <p>Let's send messages to some of my most engaging followers</p>
+                </div>
+                <div class="chat-message chat-assistant ">
+                  <i class="fas fa-robot chat-icon" aria-hidden="true"></i>
+                  <p>&LT;discusses the topic with some followers, summarizes and comes back&gt;</p>
+                </div>
+                <div class="chat-message chat-assistant">
+                  <i class="fas fa-robot chat-icon" aria-hidden="true"></i>
+                  <p>Based on the feedback, I think your followers prefer workout videos.</p>
+                </div>
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseThree"
+              aria-expanded="false"
+              aria-controls="collapseThree"
+            >
+              Share a Motivational Quote
+            </button>
+          </h2>
+          <div
+            id="collapseThree"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingThree"
+            data-bs-parent="#examplesAccordion"
+          >
+            <div class="accordion-body">
+              <div class="chat-container">
+                <div class="chat-message chat-user">
+                  <i class="fas fa-user chat-icon" aria-hidden="true"></i>
+                  <p>Can you share a motivational quote with my followers?</p>
+                </div>
+                <div class="chat-message chat-assistant">
+                  <i class="fas fa-robot chat-icon" aria-hidden="true"></i>
+                  <p>Sure, I'd be happy to do that!</p>
+                </div>
+                <div class="chat-message chat-assistant">
+                  <i class="fas fa-robot chat-icon" aria-hidden="true"></i>
+                  <p>
+                    Here's a quote I found for you: "The best way to predict your future is to create it." Should I post
+                    it?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingFive">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseFive"
+              aria-expanded="false"
+              aria-controls="collapseFive"
+            >
+              Organize a Surprise Party
+            </button>
+          </h2>
+          <div
+            id="collapseFive"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingFive"
+            data-bs-parent="#examplesAccordion"
+          >
+            <div class="accordion-body">
+              <div class="chat-container">
+                <div class="chat-message chat-user">
+                  <i class="fas fa-user chat-icon" aria-hidden="true"></i>
+                  <p>Can you organize a surprise party for my friend's birthday?</p>
+                </div>
+                <div class="chat-message chat-assistant">
+                  <i class="fas fa-robot chat-icon" aria-hidden="true"></i>
+                  <p>Sure, I'd be happy to do that!</p>
+                </div>
+                <div class="chat-message chat-assistant">
+                  <i class="fas fa-robot chat-icon" aria-hidden="true"></i>
+                  <p>What's the name of your friend who has the birthday?</p>
+                </div>
+                <div class="chat-message chat-user">
+                  <i class="fas fa-user chat-icon" aria-hidden="true"></i>
+                  <p>Her name is Sarah, birthday is on 25th this month.</p>
+                </div>
+                <div class="chat-message chat-assistant">
+                  <i class="fas fa-robot chat-icon" aria-hidden="true"></i>
+                  <p>Tell me the names I should invite to the party?</p>
+                </div>
+                <div class="chat-message chat-user">
+                  <i class="fas fa-user chat-icon" aria-hidden="true"></i>
+                  <p>Their names are Cindy, John, and Mike.</p>
+                </div>
+                <div class="chat-message chat-assistant">
+                  <i class="fas fa-robot chat-icon" aria-hidden="true"></i>
+                  <p>...works for your task and asks you questions as they arrive</p>
+                </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Call-to-action for private beta sign-up -->
-    <section class="bg-light py-5">
+    <!-- 6. A banner-like section to upsell further -->
+    <section class="bg-secondary text-white py-5" >
       <div class="container text-center" id="signup">
         <h2>Join our limited private beta!</h2>
         <p>Submit your email and use case for a chance to participate.</p>
@@ -397,17 +549,12 @@
       </div>
     </section>
 
+    <!-- 8. Footer -->
     <footer class="bg-light py-3">
       <div class="container text-center">
-        <p class="mb-0">&copy; 2023 SocialGPT. All Rights Reserved.</p>
+        <p class="mb-0">&copy; 2023 SocialGPT. All rights reserved.</p>
       </div>
     </footer>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
     <script>
       document.querySelector('a[href="#signup"]').addEventListener("click", function (e) {
